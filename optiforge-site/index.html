@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Roboroyalty — rugged aftermarket hardware and infrastructure for humanoid robot fleets." />
+    <title>Roboroyalty — Built for the Humanoid Era</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+      :root { --ink:#090909; --paper:#ffffff; --accent:#ffffff; --charcoal:#161616; --muted:#747474; --line:rgba(9,9,9,.16); }
+      * { box-sizing:border-box; }
+      html { scroll-behavior:smooth; }
+      body { margin:0; font-family:Manrope,Arial,sans-serif; background:var(--paper); color:var(--ink); }
+      a { color:inherit; text-decoration:none; }
+      .mono { font:500 11px/1.25 'DM Mono', monospace; letter-spacing:.08em; text-transform:uppercase; }
+      nav { height:76px; display:flex; align-items:center; justify-content:space-between; padding:0 5.5vw; border-bottom:1px solid var(--line); position:relative; z-index:5; }
+      .brand { display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:-.06em; font-size:24px; }
+      .brand-mark { width:25px; height:25px; border:2px solid var(--ink); border-radius:50% 50% 6px 50%; transform:rotate(45deg); }
+      .nav-links { display:flex; gap:30px; font-size:13px; font-weight:700; }
+      .nav-cta { padding:11px 17px; background:var(--ink); color:var(--paper); border-radius:4px; }
+      .hero { min-height:690px; position:relative; overflow:hidden; background:var(--ink) url('https://cphoto.asiae.co.kr/listimglink/1/2025082614254297014_1756185942.jpg') center 44% / cover no-repeat; color:#fff; padding:78px 5.5vw 52px; display:flex; flex-direction:column; }
+      .hero:before { content:''; position:absolute; inset:0; background:linear-gradient(90deg,rgba(0,0,0,.84) 0%,rgba(0,0,0,.61) 47%,rgba(0,0,0,.2) 100%),linear-gradient(0deg,rgba(0,0,0,.66),transparent 56%); }
+      .grid { position:absolute; inset:0; z-index:1; opacity:.14; background-image:linear-gradient(rgba(255,255,255,.55) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.55) 1px,transparent 1px); background-size:74px 74px; mask-image:linear-gradient(to bottom,black,transparent); }
+      .eyebrow { color:#a9a9a9; position:relative; z-index:2; }
+      h1 { position:relative; z-index:2; margin:32px 0 28px; max-width:930px; font-size:clamp(56px,9vw,132px); line-height:.88; letter-spacing:-.09em; font-weight:800; }
+      h1 em { font-style:normal; color:#a8a8a8; }
+      .hero-bottom { position:relative; z-index:2; margin-top:auto; display:grid; grid-template-columns:1.1fr .9fr; align-items:end; gap:35px; }
+      .intro { max-width:470px; color:#d2dad4; font-size:16px; line-height:1.6; }
+      .hero-metrics { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid rgba(255,255,255,.25); }
+      .metric { padding:17px 12px 0; border-left:1px solid rgba(255,255,255,.25); }
+      .metric strong { display:block; color:#fff; font-size:24px; letter-spacing:-.07em; }
+      .metric span { font-size:11px; color:#c1cbc4; }
+      .ticker { padding:12px 5.5vw; background:#dedede; color:#111; overflow:hidden; white-space:nowrap; font:500 12px 'DM Mono',monospace; text-transform:uppercase; letter-spacing:.07em; }
+      .ticker span { margin-right:34px; }
+      section { padding:110px 5.5vw; }
+      .section-head { display:flex; justify-content:space-between; gap:30px; align-items:start; margin-bottom:46px; }
+      h2 { font-size:clamp(37px,5vw,68px); max-width:740px; margin:10px 0 0; letter-spacing:-.075em; line-height:.96; }
+      .section-note { max-width:280px; color:var(--muted); font-size:14px; line-height:1.55; }
+      .products { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line); border-left:1px solid var(--line); }
+      .product { min-height:315px; padding:22px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); display:flex; flex-direction:column; transition:.25s; }
+      .product:hover { background:#ededed; }
+      .product-num { color:var(--muted); }
+      .product-image { height:112px; margin:24px 0 auto; overflow:hidden; background:#d9d9d9; }
+      .product-image img { width:100%; height:100%; display:block; object-fit:cover; filter:grayscale(1) contrast(1.1); transition:transform .35s ease, filter .35s ease; }
+      .product:hover .product-image img { transform:scale(1.07); filter:grayscale(0) contrast(1); }
+      .product-icon { width:68px; height:68px; margin:34px 0 auto; position:relative; }
+      .circle { border:3px solid var(--ink); border-radius:50%; width:100%; height:100%; }
+      .circle:after { content:''; position:absolute; top:27px; left:-12px; width:87px; border-top:3px solid var(--ink); transform:rotate(-35deg); }
+      .panel { border:3px solid var(--ink); border-radius:8px 26px 8px 8px; transform:skewY(-8deg); }
+      .dock { border:3px solid var(--ink); border-bottom:0; border-radius:35px 35px 0 0; width:48px; margin:auto; }
+      .dock:after { content:''; position:absolute; width:80px; left:-19px; bottom:-11px; border-top:3px solid var(--ink); }
+      .shield { background:var(--ink); clip-path:polygon(50% 0,96% 18%,84% 78%,50% 100%,16% 78%,4% 18%); }
+      .product h3 { font-size:20px; letter-spacing:-.055em; margin:0 0 9px; }
+      .product p { color:var(--muted); font-size:13px; line-height:1.5; margin:0; }
+      .split { background:var(--ink); color:var(--paper); display:grid; grid-template-columns:1fr 1fr; padding:0; }
+      .split-copy { padding:90px 5.5vw; }
+      .split-copy h2 { max-width:540px; }
+      .split-copy p { max-width:480px; color:#aab3ad; line-height:1.6; font-size:15px; }
+      .list { margin-top:42px; border-top:1px solid rgba(255,255,255,.2); }
+      .list div { display:flex; justify-content:space-between; padding:16px 0; border-bottom:1px solid rgba(255,255,255,.2); font-size:14px; }
+      .list b { color:#fff; font:500 12px 'DM Mono',monospace; }
+      .diagram { min-height:540px; position:relative; overflow:hidden; background:#202020; }
+      .diagram img { width:100%; height:100%; min-height:540px; object-fit:cover; object-position:center; display:block; filter:grayscale(1) contrast(1.16) brightness(.92); }
+      .diagram:after { content:''; position:absolute; inset:0; background:linear-gradient(90deg,rgba(0,0,0,.46),transparent 60%); pointer-events:none; }
+      .photo-credit { position:absolute; z-index:2; right:22px; bottom:20px; color:#fff; font:500 9px 'DM Mono',monospace; text-transform:uppercase; letter-spacing:.05em; opacity:.8; }
+      .callout { position:absolute; z-index:2; padding:10px 13px; border:1px solid #fff; color:#fff; background:rgba(0,0,0,.62); font:500 10px 'DM Mono',monospace; text-transform:uppercase; }
+      .c1 { top:95px; left:11%; } .c2 { top:242px; right:8%; } .c3 { bottom:80px; left:18%; }
+      .future { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+      .phase { padding:25px 0; border-top:2px solid var(--ink); }
+      .phase time { color:#555; font:500 12px 'DM Mono',monospace; }
+      .phase h3 { font-size:25px; letter-spacing:-.07em; margin:22px 0 10px; } .phase p { color:var(--muted); font-size:14px; line-height:1.5; }
+      .customize { background:#f5f5f5; }
+      .custom-layout { display:grid; grid-template-columns:1.15fr .85fr; gap:20px; }
+      .custom-options { border:1px solid var(--line); background:var(--paper); }
+      .custom-block { padding:22px; border-bottom:1px solid var(--line); }
+      .custom-block:last-child { border-bottom:0; }
+      .custom-block h3 { margin:0 0 12px; font-size:19px; letter-spacing:-.045em; }
+      .chips { display:flex; flex-wrap:wrap; gap:9px; }
+      .chip { padding:8px 10px; border:1px solid var(--line); background:#fff; font:500 11px 'DM Mono',monospace; text-transform:uppercase; letter-spacing:.06em; }
+      .chip.active { background:var(--ink); color:#fff; border-color:var(--ink); }
+      .preview { border:1px solid var(--ink); background:var(--paper); padding:22px; display:flex; flex-direction:column; gap:14px; }
+      .preview-head { display:flex; justify-content:space-between; align-items:center; }
+      .preview-body { border-top:1px solid var(--line); padding-top:16px; }
+      .preview-body p { color:var(--muted); font-size:14px; line-height:1.55; margin:0 0 14px; }
+      .preview-list { margin:0; padding-left:18px; color:#333; font-size:13px; line-height:1.6; }
+      .custom-gallery { margin-top:20px; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+      .gallery-card { background:var(--paper); border:1px solid var(--line); }
+      .gallery-card img { width:100%; height:185px; display:block; object-fit:cover; filter:grayscale(1) contrast(1.1); }
+      .gallery-meta { padding:12px 14px; border-top:1px solid var(--line); }
+      .gallery-meta strong { display:block; font-size:14px; letter-spacing:-.02em; margin-bottom:4px; }
+      .gallery-meta span { color:var(--muted); font-size:12px; }
+      .cta { background:#dedede; color:var(--ink); text-align:center; padding:100px 5.5vw; }
+      .cta h2 { margin:12px auto 28px; max-width:760px; } .cta .eyebrow { color:#555; }
+      .button { display:inline-block; padding:16px 23px; border-radius:4px; background:var(--ink); color:#fff; font-size:13px; font-weight:800; }
+      footer { background:var(--ink); color:#aab3ad; padding:28px 5.5vw; display:flex; justify-content:space-between; font-size:11px; }
+      @media (max-width:760px) { nav { height:65px; padding:0 22px; } .nav-links { display:none; } .hero { min-height:650px; padding:62px 22px 35px; } .hero-bottom,.split,.custom-layout,.custom-gallery { grid-template-columns:1fr; } .hero-metrics { margin-top:28px; } .metric { padding-left:8px; } section { padding:72px 22px; } .section-head { display:block; } .section-note { margin-top:20px; } .products { grid-template-columns:1fr 1fr; } .product { min-height:260px; } .split-copy { padding:65px 22px; } .diagram,.diagram img { min-height:450px; } .future { grid-template-columns:1fr; gap:0; } .c1 { left:4%; }.c2 { right:3%; }.c3 { left:5%; } footer { padding:22px; } }
+      @media (max-width:430px) { .products { grid-template-columns:1fr; } h1 { font-size:59px; } .hero-metrics { grid-template-columns:1fr 1fr; }.metric:last-child { display:none; } .gallery-card img { height:160px; } }
+    </style>
+  </head>
+  <body>
+    <nav><a class="brand" href="#top"><i class="brand-mark"></i>roboroyalty</a><div class="nav-links"><a href="#systems">Systems</a><a href="#ecosystem">Ecosystem</a><a href="#customize">Customize</a><a href="#roadmap">Outlook</a></div><a class="nav-cta mono" href="#contact">Partner with us ↗</a></nav>
+    <main id="top">
+      <section class="hero"><div class="grid"></div><div class="eyebrow mono">Hardware for the humanoid era / 01</div><h1>Build more.<br><em>Endure more.</em></h1><div class="hero-bottom"><p class="intro">Rugged mechanical systems, infrastructure, and exterior solutions engineered for the next generation of 173 cm, vision-first humanoid robot fleets.</p><div class="hero-metrics"><div class="metric"><strong>57 kg</strong><span>target platform mass</span></div><div class="metric"><strong>20 kg</strong><span>payload-aware design</span></div><div class="metric"><strong>22 DoF</strong><span>reported Gen 3 hand</span></div></div></div></section>
+      <div class="ticker"><span>✓ Vision-system conscious</span><span>✓ 2.3 kWh class battery aware</span><span>✓ Fleet-ready hardware</span><span>✓ Documentation-first engineering</span></div>
+      <section id="systems"><div class="section-head"><div><div class="mono">The system / 02</div><h2>Every layer of work, considered.</h2></div><p class="section-note">Roboroyalty connects human-grade industrial hardware with a humanoid form factor — without losing sight of safety, serviceability, or the robot’s native intelligence.</p></div><div class="products"><article class="product"><span class="product-num mono">01</span><figure class="product-image"><img src="https://www-objects.markforged.com/craft/common/_small2x/dixon-gripper_in-copy-img.jpg" alt="Robotic arm with a precision gripper end effector" loading="lazy" /></figure><h3>Mod kits</h3><p>Reinforced joint covers, duty-cycle protection, end-effector adapters, and payload-conscious tool mounts.</p></article><article class="product"><span class="product-num mono">02</span><figure class="product-image"><img src="https://www.tehuprotection.com/data/watermark/main/ueditor/20250127/6796e35754cd9.jpg" alt="Industrial robot wearing a fitted protective exterior cover" loading="lazy" /></figure><h3>Exterior kits</h3><p>Modular body panels, washable workwear shells, and fleet identity systems that make machines unmistakably yours.</p></article><article class="product"><span class="product-num mono">03</span><figure class="product-image"><img src="https://www.medyamerkezi.yildizholding.com.tr/documents/basin_bultenleri/2024/ulkerrobotprojesi.jpg" alt="Autonomous mobile robots at an industrial charging station" loading="lazy" /></figure><h3>Infrastructure</h3><p>Auto-docking-ready charge stations, storage carts, mobile work platforms, and transport solutions.</p></article><article class="product"><span class="product-num mono">04</span><figure class="product-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Robot%20arm%20picks%20up%20cylindrical%20objects%20in%20a%20factory%20setting.jpg?width=800" alt="Industrial robot carrying out a material-handling task in a factory" loading="lazy" /></figure><h3>Protection</h3><p>Sensor-conscious lens shields, soft collision pads, thermal packages, and dust defense for demanding sites.</p></article></div></section>
+      <section class="split" id="ecosystem"><div class="split-copy"><div class="eyebrow mono">Designed around the machine / 03</div><h2>Compatible by design. Credible by data.</h2><p>Aftermarket hardware should never compromise the systems that make a humanoid useful. Our product philosophy begins with clear vision paths, protected actuator travel, and serviceable interfaces around the robot's native intelligence.</p><div class="list"><div><span>Vision & sensor clearance</span><b>Verified</b></div><div><span>Thermal & material performance</span><b>Tested</b></div><div><span>Service & installation guides</span><b>Documented</b></div></div></div><div class="diagram"><img src="https://media.ixbt.site/fit-in/814x/https%3A/www.ixbt.com/img/n1/news/2026/0/2/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202026-01-20%20134037_large.png" alt="Tesla Optimus robot working at a factory station" /><div class="callout c1">Vision-safe protection</div><div class="callout c2">Tool-ready interfaces</div><div class="callout c3">Industrial workwear</div><span class="photo-credit">Image: ixbt factory footage</span></div></section>
+      <section class="customize" id="customize"><div class="section-head"><div><div class="mono">Configure your build / 04</div><h2>Customize products and visual identity for every deployment.</h2></div><p class="section-note">Select kit styles, finish profiles, and branding language to match each site, operator team, or environment.</p></div><div class="custom-layout"><div class="custom-options"><div class="custom-block"><h3>Product profile</h3><div class="chips"><span class="chip active">Protection-heavy</span><span class="chip">Utility-first</span><span class="chip">High-visibility</span><span class="chip">Stealth fleet</span></div></div><div class="custom-block"><h3>Material finish</h3><div class="chips"><span class="chip">Textured shell</span><span class="chip active">Matte graphite</span><span class="chip">Washable textile</span><span class="chip">Composite guard</span></div></div><div class="custom-block"><h3>Brand layer</h3><div class="chips"><span class="chip">Name plate</span><span class="chip active">Color strip</span><span class="chip">Task icon set</span><span class="chip">Zone labels</span></div></div></div><aside class="preview"><div class="preview-head"><span class="mono">Live layout preview</span><strong>Factory profile A</strong></div><div class="preview-body"><p>A complete visual package aligned to safety workflows and fleet operations, with configurable appearance and tool-ready hardware envelopes.</p><ul class="preview-list"><li>Exterior kit with lens-safe protective contours</li><li>Unified palette for operator visibility</li><li>Dock label and mission icon integration</li></ul></div><a class="button" href="#contact">Request custom consultation ↗</a></aside></div><div class="custom-gallery"><figure class="gallery-card"><img src="images/customize-warehouse.svg" alt="Humanoid robot with branded protective shell in a warehouse" loading="lazy" /><figcaption class="gallery-meta"><strong>Warehouse package</strong><span>High-visibility shell + dock labels</span></figcaption></figure><figure class="gallery-card"><img src="images/customize-service.svg" alt="Humanoid robot fitted with modular exterior for service workflow" loading="lazy" /><figcaption class="gallery-meta"><strong>Service profile</strong><span>Washable textile + task icon system</span></figcaption></figure><figure class="gallery-card"><img src="images/customize-stealth.svg" alt="Humanoid robot configured with low-profile matte finish" loading="lazy" /><figcaption class="gallery-meta"><strong>Stealth profile</strong><span>Matte graphite + sensor-safe contours</span></figcaption></figure></div></section>
+      <section id="roadmap"><div class="section-head"><div><div class="mono">Forward program / 05</div><h2>Built alongside the category.</h2></div><p class="section-note">A considered rollout from industrial protection to a complete aftermarket ecosystem.</p></div><div class="future"><article class="phase"><time>2026–2028</time><h3>Industrial proof</h3><p>Robust protection, charging, and hand-adapter systems for early enterprise deployments.</p></article><article class="phase"><time>2028–2030</time><h3>Fleet expansion</h3><p>Fleet infrastructure and expressive exterior packages for broader commercial operations.</p></article><article class="phase"><time>Beyond</time><h3>Everyday utility</h3><p>Licensed designs, diagnostics subscriptions, and approachable products for home environments.</p></article></div></section>
+      <section class="cta" id="contact"><div class="eyebrow mono">The next deployment starts here</div><h2>Let’s make the humanoid workforce harder to stop.</h2><a class="button" href="mailto:partners@roboroyalty.example">Start a partnership ↗</a></section>
+    </main>
+    <footer><span>© 2026 Roboroyalty. Concept brand.</span><span>Engineered for what’s next.</span></footer>
+  </body>
+</html>
