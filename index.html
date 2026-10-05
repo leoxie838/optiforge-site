@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Roboroyalty — rugged aftermarket hardware and infrastructure for humanoid robot fleets." />
+    <title>Roboroyalty — Built for the Humanoid Era</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+      :root { --ink:#090909; --paper:#ffffff; --accent:#ffffff; --charcoal:#161616; --muted:#747474; --line:rgba(9,9,9,.16); }
+      * { box-sizing:border-box; }
+      html { scroll-behavior:smooth; }
+      body { margin:0; font-family:Manrope,Arial,sans-serif; background:var(--paper); color:var(--ink); }
+      a { color:inherit; text-decoration:none; }
+      .mono { font:500 11px/1.25 'DM Mono', monospace; letter-spacing:.08em; text-transform:uppercase; }
+      nav { height:76px; display:flex; align-items:center; justify-content:space-between; padding:0 5.5vw; border-bottom:1px solid var(--line); position:relative; z-index:5; }
+      .brand { display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:-.06em; font-size:24px; }
+      .brand-mark { width:25px; height:25px; border:2px solid var(--ink); border-radius:50% 50% 6px 50%; transform:rotate(45deg); }
+      .nav-links { display:flex; gap:30px; font-size:13px; font-weight:700; }
+      .nav-cta { padding:11px 17px; background:var(--ink); color:var(--paper); border-radius:4px; }
+      .hero { min-height:690px; position:relative; overflow:hidden; background:var(--ink) url('https://cphoto.asiae.co.kr/listimglink/1/2025082614254297014_1756185942.jpg') center 44% / cover no-repeat; padding:62px 5.5vw 35px; display:flex; flex-direction:column; }
+      .hero:before { content:''; position:absolute; inset:0; background:linear-gradient(90deg,rgba(0,0,0,.84) 0%,rgba(0,0,0,.61) 47%,rgba(0,0,0,.2) 100%),linear-gradient(0deg,rgba(0,0,0,.66),transparent 60%); z-index:0; }
+      .grid { position:absolute; inset:0; z-index:1; opacity:.14; background-image:linear-gradient(rgba(255,255,255,.55) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.55) 1px,transparent 1px); background-size:50px 50px; }
+      .eyebrow { color:#a9a9a9; position:relative; z-index:2; }
+      h1 { position:relative; z-index:2; margin:32px 0 28px; max-width:930px; font-size:clamp(56px,9vw,132px); line-height:.88; letter-spacing:-.09em; font-weight:800; }
+      h1 em { font-style:normal; color:#a8a8a8; }
+      .hero-bottom { position:relative; z-index:2; margin-top:auto; display:grid; grid-template-columns:1.1fr .9fr; align-items:end; gap:35px; }
+      .intro { max-width:470px; color:#d2dad4; font-size:16px; line-height:1.6; }
+      .hero-metrics { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid rgba(255,255,255,.25); }
+      .metric { padding:17px 12px 0; border-left:1px solid rgba(255,255,255,.25); }
+      .metric strong { display:block; color:#fff; font-size:24px; letter-spacing:-.07em; }
+      .metric span { font-size:11px; color:#c1cbc4; }
+      .ticker { padding:12px 5.5vw; background:#dedede; color:#111; overflow:hidden; white-space:nowrap; font:500 12px 'DM Mono',monospace; text-transform:uppercase; letter-spacing:.07em; }
+      .ticker span { margin-right:34px; }
+      section { padding:110px 5.5vw; }
+      .section-head { display:flex; justify-content:space-between; gap:30px; align-items:start; margin-bottom:46px; }
+      h2 { font-size:clamp(37px,5vw,68px); max-width:740px; margin:10px 0 0; letter-spacing:-.075em; line-height:.96; }
+      .section-note { max-width:280px; color:var(--muted); font-size:14px; line-height:1.55; }
+      .products { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line); border-left:1px solid var(--line); }
+      .product { min-height:315px; padding:22px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); display:flex; flex-direction:column; transition:.25s; }
+      .product:hover { background:#ededed; }
+      .product-num { color:var(--muted); }
+      .product-image { height:112px; margin:24px 0 auto; overflow:hidden; background:#d9d9d9; }
+      .product-image img { width:100%; height:100%; display:block; object-fit:cover; filter:grayscale(1) contrast(1.1); transition:transform .35s ease, filter .35s ease; }
+      .product:hover .product-image img { transform:scale(1.07); filter:grayscale(0) contrast(1); }
+      .product-icon { width:68px; height:68px; margin:34px 0 auto; position:relative; }
+      .circle { border:3px solid var(--ink); border-radius:50%; width:100%; height:100%; }
+      .circle:after { content:''; position:absolute; top:27px; left:-12px; width:87px; border-top:3px solid var(--ink); transform:rotate(-35deg); }
+      .panel { border:3px solid var(--ink); border-radius:8px 26px 8px 8px; transform:skewY(-8deg); }
+      .dock { border:3px solid var(--ink); border-bottom:0; border-radius:35px 35px 0 0; width:48px; margin:auto; }
+      .dock:after { content:''; position:absolute; width:80px; left:-19px; bottom:-11px; border-top:3px solid var(--ink); }
+      .shield { background:var(--ink); clip-path:polygon(50% 0,96% 18%,84% 78%,50% 100%,16% 78%,4% 18%); }
+      .product h3 { font-size:20px; letter-spacing:-.055em; margin:0 0 9px; }
+      .product p { color:var(--muted); font-size:13px; line-height:1.5; margin:0; }
+      .split { background:var(--ink); color:var(--paper); display:grid; grid-template-columns:1fr 1fr; padding:0; }
+      .split-copy { padding:90px 5.5vw; }
+      .split-copy h2 { max-width:540px; }
+      .split-copy p { max-width:480px; color:#aab3ad; line-height:1.6; font-size:15px; }
+      .list { margin-top:42px; border-top:1px solid rgba(255,255,255,.2); }
+      .list div { display:flex; justify-content:space-between; padding:16px 0; border-bottom:1px solid rgba(255,255,255,.2); font-size:14px; }
+      .list b { color:#fff; font:500 12px 'DM Mono',monospace; }
+      .diagram { min-height:540px; position:relative; overflow:hidden; background:#202020; }
+      .diagram img { width:100%; height:100%; min-height:540px; object-fit:cover; object-position:center; display:block; filter:grayscale(1) contrast(1.16) brightness(.92); }
+      .diagram:after { content:''; position:absolute; inset:0; background:linear-gradient(90deg,rgba(0,0,0,.46),transparent 60%); pointer-events:none; }
+      .photo-credit { position:absolute; z-index:2; right:22px; bottom:20px; color:#fff; font:500 9px 'DM Mono',monospace; text-transform:uppercase; letter-spacing:.05em; opacity:.8; }
+      .callout { position:absolute; z-index:2; padding:10px 13px; border:1px solid #fff; color:#fff; background:rgba(0,0,0,.62); font:500 10px 'DM Mono',monospace; text-transform:uppercase; }
+      .c1 { top:95px; left:11%; } .c2 { top:242px; right:8%; } .c3 { bottom:80px; left:18%; }
+      .future { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+      .phase { padding:25px 0; border-top:2px solid var(--ink); }
+      .phase time { color:#555; font:500 12px 'DM Mono',monospace; }
+      .phase h3 { font-size:25px; letter-spacing:-.07em; margin:22px 0 10px; } .phase p { color:var(--muted); font-size:14px; line-height:1.5; }
+      .customize { background:#f5f5f5; }
+      .custom-layout { display:grid; grid-template-columns:1.15fr .85fr; gap:20px; }
+      .custom-options { border:1px solid var(--line); background:var(--paper); }
+      .custom-block { padding:22px; border-bottom:1px solid var(--line); }
+      .custom-block:last-child { border-bottom:0; }
+      .custom-block h3 { margin:0 0 12px; font-size:19px; letter-spacing:-.045em; }
+      .chips { display:flex; flex-wrap:wrap; gap:9px; }
+      .chip { padding:8px 10px; border:1px solid var(--line); background:#fff; font:500 11px 'DM Mono',monospace; text-transform:uppercase; letter-spacing:.06em; }
+      .chip.active { background:var(--ink); color:#fff; border-color:var(--ink); }
+      .preview { border:1px solid var(--ink); background:var(--paper); padding:22px; display:flex; flex-direction:column; gap:14px; }
+      .preview-head { display:flex; justify-content:space-between; align-items:center; }
+      .preview-body { border-top:1px solid var(--line); padding-top:16px; }
+      .preview-body p { color:var(--muted); font-size:14px; line-height:1.55; margin:0 0 14px; }
+      .preview-list { margin:0; padding-left:18px; color:#333; font-size:13px; line-height:1.6; }
+      .custom-gallery { margin-top:20px; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+      .gallery-card { background:var(--paper); border:1px solid var(--line); }
+      .gallery-card img { width:100%; height:185px; display:block; object-fit:cover; filter:grayscale(1) contrast(1.1); }
+      .gallery-meta { padding:12px 14px; border-top:1px solid var(--line); }
+      .gallery-meta strong { display:block; font-size:14px; letter-spacing:-.02em; margin-bottom:4px; }
+      .gallery-meta span { color:var(--muted); font-size:12px; }
+      .cta { background:#dedede; color:var(--ink); text-align:center; padding:100px 5.5vw; }
+      .cta h2 { margin:12px auto 28px; max-width:760px; } .cta .eyebrow { color:#555; }
+      .button { display:inline-block; padding:16px 23px; border-radius:4px; background:var(--ink); color:#fff; font-size:13px; font-weight:800; }
+      footer { background:var(--ink); color:#aab3ad; padding:28px 5.5vw; display:flex; justify-content:space-between; font-size:11px; }
+      @media (max-width:760px) { nav { height:65px; padding:0 22px; } .nav-links { display:none; } .hero { min-height:650px; padding:62px 22px 35px; } .hero-bottom,.split,.custom-layout,.custom-gallery { grid-template-columns:1fr; } h2 { font-size:clamp(28px,5vw,48px); } .custom-options { grid-column:1/-1; } }
+      @media (max-width:430px) { .products { grid-template-columns:1fr; } h1 { font-size:59px; } .hero-metrics { grid-template-columns:1fr 1fr; }.metric:last-child { display:none; } .gallery-card img { height:140px; } }
+    </style>
+  </head>
+  <body>
+    <nav><a class="brand" href="#top"><i class="brand-mark"></i>roboroyalty</a><div class="nav-links"><a href="#systems">Systems</a><a href="#ecosystem">Ecosystem</a><a href="#customize">Customize</a><a href="#roadmap">Roadmap</a><a class="nav-cta" href="#contact">Get started</a></div></nav>
+    <main id="top">
+      <section class="hero"><div class="grid"></div><div class="eyebrow mono">Hardware for the humanoid era / 01</div><h1>Build more.<br><em>Endure more.</em></h1><div class="hero-bottom"><p class="intro">Rugged, mission-ready hardware and infrastructure designed for humanoid robot fleets. Built to handle extreme conditions and deliver predictable performance.</p><div class="hero-metrics"><div class="metric"><strong>156K+</strong><span>Operating Hours</span></div><div class="metric"><strong>47</strong><span>Deployments</span></div><div class="metric"><strong>99.7%</strong><span>Uptime Rate</span></div></div></div></section>
+      <div class="ticker"><span>✓ Vision-system conscious</span><span>✓ 2.3 kWh class battery aware</span><span>✓ Fleet-ready hardware</span><span>✓ Documentation-first engineering</span></div>
+      <section id="systems"><div class="section-head"><div><div class="mono">The system / 02</div><h2>Every layer of work, considered.</h2></div><p class="section-note">Roboroyalty connects human-grade reliability with machine learning optimization. Three core systems handle power, cooling, and diagnostics.</p></div><div class="products"><div class="product"><div class="product-num mono">01</div><div class="product-icon"><div class="circle"></div></div><h3>Power Control</h3><p>Dual-path redundancy with hot-swap capability for continuous operation.</p></div><div class="product"><div class="product-num mono">02</div><div class="product-icon"><div class="panel"></div></div><h3>Thermal Management</h3><p>Passive-primary cooling with active fallback, rated to -40°C ambient.</p></div><div class="product"><div class="product-num mono">03</div><div class="product-icon"><div class="dock"></div></div><h3>Telemetry & Diag</h3><p>Real-time health dashboards and predictive maintenance alerts.</p></div><div class="product"><div class="product-num mono">04</div><div class="product-icon"><div class="shield"></div></div><h3>Security & Signing</h3><p>Hardware attestation and cryptographic verification for every command.</p></div></div></section>
+      <section class="split" id="ecosystem"><div class="split-copy"><div class="eyebrow mono">Designed around the machine / 03</div><h2>Compatible by design. Credible by data.</h2><p>Aftermarket hardware doesn't have to mean compromise. Our entire stack was built around the most demanding humanoid architectures in the world. Real deployments. Real data. Real results.</p><div class="list"><div><span>• Integration time</span><b>4-6 weeks</b></div><div><span>• MTTR (avg.)</span><b>18 minutes</b></div><div><span>• Vendor support</span><b>24/7/365</b></div></div></div><div class="diagram"><img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1200&h=600&fit=crop" alt="Robotics infrastructure diagram" /><span class="photo-credit">Infrastructure visualization</span><div class="callout c1">Thermal regulation</div><div class="callout c2">Power distribution</div><div class="callout c3">Feedback systems</div></div></section>
+      <section class="customize" id="customize"><div class="section-head"><div><div class="mono">Configure your build / 04</div><h2>Customize products and visual identity for every deployment.</h2></div><p class="section-note">Create deployment-specific configurations with white-label branding and tailored firmware packages.</p></div><div class="custom-layout"><div class="custom-options"><div class="custom-block"><h3>Power Output</h3><div class="chips"><span class="chip">500W</span><span class="chip active">750W</span><span class="chip">1000W</span></div></div><div class="custom-block"><h3>Cooling Profile</h3><div class="chips"><span class="chip">Passive</span><span class="chip">Active</span><span class="chip active">Hybrid</span></div></div><div class="custom-block"><h3>Telemetry Integration</h3><div class="chips"><span class="chip">CAN-bus</span><span class="chip active">Ethernet</span><span class="chip">Wireless</span></div></div></div><div class="preview"><div class="preview-head"><strong>Build Preview</strong><span class="mono">Custom RR-750H</span></div><div class="preview-body"><p><strong>Configuration Summary</strong></p><p>Your custom build is a high-capacity power and thermal management system optimized for continuous-duty deployment with network telemetry integration.</p><ul class="preview-list"><li>750W output capacity</li><li>Hybrid cooling (active + passive)</li><li>Ethernet telemetry</li><li>Custom branding package</li><li>White-label documentation</li></ul></div></div></div><div class="custom-gallery"><div class="gallery-card"><img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=300&fit=crop" alt="Hardware configuration 1" /><div class="gallery-meta"><strong>Power Module</strong><span>RR-750-PWR</span></div></div><div class="gallery-card"><img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=300&fit=crop" alt="Hardware configuration 2" /><div class="gallery-meta"><strong>Thermal Unit</strong><span>RR-COOL-H</span></div></div><div class="gallery-card"><img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=300&fit=crop" alt="Hardware configuration 3" /><div class="gallery-meta"><strong>Controller</strong><span>RR-CTRL-ETH</span></div></div></div></section>
+      <section id="roadmap"><div class="section-head"><div><div class="mono">Forward program / 05</div><h2>Built alongside the category.</h2></div><p class="section-note">A considered rollout from industry feedback, field testing, and real-world performance data.</p></div><div class="future"><div class="phase"><time>Q1 2026</time><h3>Fleet SDK</h3><p>Open-source software development kit for custom firmware and integrated telemetry protocols.</p></div><div class="phase"><time>Q2 2026</time><h3>AI Diagnostics</h3><p>Machine-learning-based predictive maintenance and optimization recommendations.</p></div><div class="phase"><time>Q3 2026</time><h3>Scale Program</h3><p>Volume discounts and managed deployment services for fleets 100+ units.</p></div></div></section>
+      <section class="cta" id="contact"><div class="eyebrow mono">The next deployment starts here</div><h2>Let's make the humanoid workforce harder to stop.</h2><a class="button" href="mailto:partners@roboroyalty.io">Get in touch</a></section>
+    </main>
+    <footer><span>© 2026 Roboroyalty. Concept brand.</span><span>Engineered for what's next.</span></footer>
+  </body>
+</html>
