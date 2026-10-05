@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Service profile demo</title>
+  <desc id="desc">Monochrome demo image showing a humanoid robot with service task icons and washable textile shell.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#202020"/>
+      <stop offset="100%" stop-color="#464646"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <g stroke="#d7d7d7" stroke-width="3" fill="none" opacity="0.8">
+    <rect x="120" y="150" width="210" height="140"/>
+    <rect x="870" y="150" width="210" height="140"/>
+    <rect x="120" y="360" width="210" height="140"/>
+    <rect x="870" y="360" width="210" height="140"/>
+  </g>
+  <g fill="#f2f2f2">
+    <circle cx="600" cy="230" r="72"/>
+    <rect x="525" y="310" width="150" height="210" rx="28"/>
+    <rect x="475" y="330" width="42" height="140" rx="12"/>
+    <rect x="683" y="330" width="42" height="140" rx="12"/>
+    <rect x="545" y="530" width="48" height="80" rx="12"/>
+    <rect x="607" y="530" width="48" height="80" rx="12"/>
+  </g>
+  <g fill="#090909" font-family="Arial, sans-serif" font-size="18" font-weight="700">
+    <text x="225" y="230" text-anchor="middle">ICON SET</text>
+    <text x="975" y="230" text-anchor="middle">TASK A</text>
+    <text x="225" y="440" text-anchor="middle">TASK B</text>
+    <text x="975" y="440" text-anchor="middle">SERVICE</text>
+  </g>
+  <text x="600" y="650" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="34" font-weight="700">SERVICE PROFILE</text>
+</svg>
+
